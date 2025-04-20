@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Get the commit message
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(cat $COMMIT_MSG_FILE)
+
+# Regular expression for the commit message format
+REGEX="^(feat|fix|docs|chore|style|refactor|test)(\([a-zA-Z0-9_-]+\))?: .{20,200}"
+
+# Check if the commit message matches the regex
+if ! echo "$COMMIT_MSG" | egrep -q "$REGEX"; then
+  echo "❌ ERROR: Commit message does not follow the required format."
+  echo "✅ Format: type(scope): message"
+  echo "🔹 Valid types: feat, fix, docs, chore, style, refactor, test"
+  echo "🔹 Message should be between 20 and 200 characters"
+  exit 1
+fi
