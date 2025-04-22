@@ -13,7 +13,9 @@ class ProductService {
       final jsonData = json.decode(response.body);
       final List<dynamic> productJson = jsonData['products'];
 
-      return productJson.map((json) => Product.fromJson(json)).toList();
+      final products =
+          productJson.map((json) => Product.fromJson(json)).toList();
+      return products;
     } else {
       throw Exception("Failed to load products from api");
     }
