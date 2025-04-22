@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_intern/blocs/cart/cart_bloc.dart';
 import 'package:flutter_intern/blocs/product/product_bloc.dart';
 import 'package:flutter_intern/blocs/product/product_event.dart';
 import 'package:flutter_intern/repository/product_repository.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
                   ProductBloc(productRepository)
                     ..add(ProductInitialFetchEvent()),
         ),
+        BlocProvider(create: (context) => CartBloc()),
       ],
       child: MaterialApp(
         title: 'Bloc',
