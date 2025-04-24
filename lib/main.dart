@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
               (context) =>
                   getIt<ProductBloc>()..add(ProductInitialFetchEvent()),
         ),
-        BlocProvider(create: (context) => CartBloc()),
+        BlocProvider(create: (context) => getIt<CartBloc>()),
       ],
       child: MaterialApp(
         title: 'Bloc',
