@@ -5,6 +5,7 @@ import 'package:flutter_intern/blocs/product/product_bloc.dart';
 import 'package:flutter_intern/blocs/product/product_event.dart';
 import 'package:flutter_intern/screens/product_list_screen.dart';
 import 'package:flutter_intern/service_locator.dart';
+import 'package:flutter_intern/services/cart_service.dart';
 
 void main() {
   setup();

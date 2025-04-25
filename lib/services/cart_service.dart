@@ -21,6 +21,8 @@ class CartService {
 
     if (cachedCart != null) {
       final List<dynamic> cartJson = jsonDecode(cachedCart);
+      print('Cart JSON: $cartJson');
+
       final cartProduct =
           cartJson.map((product) => Product.fromJson(product)).toList();
       return cartProduct;
@@ -36,4 +38,11 @@ class CartService {
     final updatedCartJson = cart.map((item) => item.toJson()).toList();
     prefs.setString(_cartCacheKey, jsonEncode(updatedCartJson));
   }
+
+  Future<void> clearCartCache() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_cartCacheKey);
+    print('Cart cache cleared!');
+  }
+
 }

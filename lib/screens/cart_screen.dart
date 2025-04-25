@@ -7,8 +7,12 @@ import 'package:flutter_intern/blocs/cart/cart_state.dart';
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
+    context.read<CartBloc>().add(LoadCartEvent());
+
+
     return Scaffold(
       appBar: AppBar(title: Text("Cart")),
       body: BlocBuilder<CartBloc, CartState>(
@@ -18,6 +22,8 @@ class CartScreen extends StatelessWidget {
             itemCount: cartItems.length,
             itemBuilder: (context, index) {
               final product = cartItems[index];
+              print('Image URL: ${product.image}');
+
               return ListTile(
                 leading: Image.network(product.image, height: 60, width: 60),
                 title: Text(product.title),

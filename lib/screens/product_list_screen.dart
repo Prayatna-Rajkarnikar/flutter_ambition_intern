@@ -7,9 +7,15 @@ import 'package:flutter_intern/blocs/product/product_bloc.dart';
 import 'package:flutter_intern/blocs/product/product_state.dart';
 import 'package:flutter_intern/screens/cart_screen.dart';
 
-class ProductListScreen extends StatelessWidget {
+class ProductListScreen extends StatefulWidget {
   const ProductListScreen({super.key});
 
+
+  @override
+  State<ProductListScreen> createState() => _ProductListScreenState();
+}
+
+class _ProductListScreenState extends State<ProductListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
