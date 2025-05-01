@@ -1,4 +1,4 @@
-import 'package:flutter_intern/data/models/contact_model.dart';
+import 'package:flutter_intern/data/model/contact_model.dart';
 
 class FindDuplicates {
   List<ContactModel> call(List<ContactModel> contacts) {
