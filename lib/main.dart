@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_intern/presentation/blocs/cart/cart_bloc.dart';
+// import 'package:flutter_intern/presentation/blocs/cart/cart_bloc.dart';
 import 'package:flutter_intern/presentation/blocs/contact/contact_bloc.dart';
-import 'package:flutter_intern/presentation/blocs/product/product_bloc.dart';
-import 'package:flutter_intern/presentation/blocs/product/product_event.dart';
+// import 'package:flutter_intern/presentation/blocs/product/product_bloc.dart';
+// import 'package:flutter_intern/presentation/blocs/product/product_event.dart';
 import 'package:flutter_intern/presentation/screens/contact_page.dart';
 import 'package:flutter_intern/service_locator.dart';
 
@@ -19,16 +19,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create:
-              (context) =>
-                  getIt<ProductBloc>()..add(ProductInitialFetchEvent()),
-        ),
-        BlocProvider(create: (context) => getIt<CartBloc>()),
+        // BlocProvider(
+        //   create:
+        //       (context) =>
+        //           getIt<ProductBloc>()..add(ProductInitialFetchEvent()),
+        // ),
+        // BlocProvider(create: (context) => getIt<CartBloc>()),
         BlocProvider(create: (context) => getIt<ContactBloc>()),
       ],
       child: MaterialApp(
         title: 'Bloc',
+
         debugShowCheckedModeBanner: false,
         home: ContactPage(),
       ),

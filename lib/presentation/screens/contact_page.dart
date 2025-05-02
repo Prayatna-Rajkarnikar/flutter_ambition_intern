@@ -28,21 +28,19 @@ class _ContactPageState extends State<ContactPage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            /// 🔍 Search bar
-            // TextField(
-            //   controller: _searchController,
-            //   decoration: InputDecoration(
-            //     labelText: 'Search name...',
-            //     border: OutlineInputBorder(),
-            //     prefixIcon: Icon(Icons.search),
-            //   ),
-            //   onChanged: (value) {
-            //     context.read<ContactBloc>().add(SearchPrefix(value));
-            //   },
-            // ),
-            // const SizedBox(height: 16),
+            TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                labelText: 'Search name...',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.search),
+              ),
+              onChanged: (value) {
+                context.read<ContactBloc>().add(SearchPrefix(value));
+              },
+            ),
+            const SizedBox(height: 16),
 
-            /// 🧾 Contact List and Duplicates
             Expanded(
               child: BlocBuilder<ContactBloc, ContactState>(
                 builder: (context, state) {
